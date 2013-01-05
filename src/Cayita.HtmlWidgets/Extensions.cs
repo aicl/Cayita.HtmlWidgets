@@ -42,6 +42,19 @@ namespace Cayita.HtmlWidgets.Common
 
 		}
 
+		public static string Format(this decimal value, string format="##,0.00"    )
+		{
+			return value.ToString(format);
+		}
+
+		public static string Format(this decimal? value, string format="##,0.00")
+		{
+			return (value.HasValue)?
+				Format(value.Value, format):
+					string.Empty;
+		}
+
+
 	}
 }
 

@@ -9,9 +9,7 @@ namespace Cayita.HtmlWidgets.Core
 	public abstract class TagBase:TagBuilder{  
 
 		public TagBase(string tagName):base(tagName){
-
 			TagRenderMode= TagRenderMode.Normal;
-
 		}
 
 		public TagRenderMode TagRenderMode{get;set;}
@@ -76,7 +74,7 @@ namespace Cayita.HtmlWidgets.Core
 
 
 		public virtual void AddHtmlTag(TagBase tag){
-			InnerHtml= InnerHtml+ tag;
+			InnerHtml= InnerHtml+ tag.ToString();
 		}
 
 		public override string ToString ()

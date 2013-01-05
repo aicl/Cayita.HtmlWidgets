@@ -153,12 +153,7 @@ namespace Cayita.HtmlWidgets
 			}
 		}
 
-		public override string ToString ()
-		{
-			BuildStyleAttribue();
-			return base.ToString(TagRenderMode.SelfClosing);
 
-		}
 
 	}
 
@@ -193,6 +188,14 @@ namespace Cayita.HtmlWidgets
 			Style = new HtmlStyle();
 		}
 
+	}
+
+	public class HtmlLineBreak:TagBuilder{
+		public HtmlLineBreak():base("br"){}
+		public override string ToString ()
+		{
+			return base.ToString(TagRenderMode.SelfClosing);
+		}
 	}
 
 }

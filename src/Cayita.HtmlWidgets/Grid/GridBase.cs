@@ -149,7 +149,7 @@ namespace Cayita.HtmlWidgets
 
 								if (!string.IsNullOrEmpty (column.HeaderText)){
 									th.SetValue(column.HeaderText);
-									filled+= ((th.ColumnSpan.HasValue && th.ColumnSpan.Value>0)?th.ColumnSpan.Value:1  );
+									filled+= ((th.ColumnSpan.HasValue && th.ColumnSpan.Value>0)?th.ColumnSpan.Value+1:1  );
 								}
 								else if(number==filled ){
 									th.Attributes.Add("height","0");
@@ -218,7 +218,7 @@ namespace Cayita.HtmlWidgets
 
 								if (column.FooterRenderFunc!=null){
 									th.SetValue(column.FooterRenderFunc());
-									filled+= ((th.ColumnSpan.HasValue && th.ColumnSpan.Value>0)?th.ColumnSpan.Value:1  );
+									filled+= ((th.ColumnSpan.HasValue && th.ColumnSpan.Value>0)?th.ColumnSpan.Value+1:1  );
 
 								}
 								else if(number==filled ){
