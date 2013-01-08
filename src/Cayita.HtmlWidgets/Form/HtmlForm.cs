@@ -58,6 +58,12 @@ namespace Cayita.HtmlWidgets
 			ActionButonDiv.AddHtmlTag(action);
 		}
 
+		public void AddActionButton(Action<HtmlButton> config){
+			HtmlButton action = new HtmlButton();
+			config(action);
+			AddActionButton(action);
+		}
+
 		public string Title {get;set;}
 
 		public override string ToString ()

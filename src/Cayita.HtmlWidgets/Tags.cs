@@ -1,6 +1,4 @@
 using ServiceStack.Html;
-using ServiceStack.Common;
-using ServiceStack.Text;
 using Cayita.HtmlWidgets.Core;
 
 namespace Cayita.HtmlWidgets
@@ -66,6 +64,33 @@ namespace Cayita.HtmlWidgets
 			}
 		}
 
+		public ButtonType ButtonType{
+			get{
+				var type = Type;
+				switch(type){
+				case "button": return ButtonType.Button;
+				case "submit": return ButtonType.Submit;
+				case "reset": return ButtonType.Reset;
+				default: return ButtonType.Unknown;
+				}
+			}
+			set{
+				switch(value){
+				case ButtonType.Button: Type="button"; break;
+				case ButtonType.Submit: Type="submit"; break;
+				case ButtonType.Reset:  Type="reset"; break;
+				case ButtonType.Unknown: Type=""; break;
+				}
+			}
+		}
+
+	}
+
+	public enum ButtonType{
+		Button,
+		Submit,
+		Reset,
+		Unknown
 	}
 
 	public class HtmlIframe:TagBase{
@@ -85,7 +110,9 @@ namespace Cayita.HtmlWidgets
 
 
 	public class HtmlImage:TagBase{
-		public HtmlImage():base("img"){}
+		public HtmlImage():base("img"){
+			TagRenderMode= TagRenderMode.SelfClosing;
+		}
 
 		public string AlternateText{
 			get{
@@ -106,14 +133,7 @@ namespace Cayita.HtmlWidgets
 				Attributes["src"]=value;
 			}
 		}
-
-		public override string ToString ()
-		{
-
-			return base.ToString(TagRenderMode.SelfClosing);
-
-		}
-
+	
 	}
 
 
@@ -190,12 +210,11 @@ namespace Cayita.HtmlWidgets
 
 	}
 
-	public class HtmlLineBreak:TagBuilder{
-		public HtmlLineBreak():base("br"){}
-		public override string ToString ()
-		{
-			return base.ToString(TagRenderMode.SelfClosing);
+	public class HtmlLineBreak:TagBase{
+		public HtmlLineBreak():base("br"){
+			TagRenderMode=TagRenderMode.SelfClosing;
 		}
+
 	}
 
 }
