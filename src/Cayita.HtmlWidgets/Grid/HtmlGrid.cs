@@ -1,5 +1,5 @@
 using System.Collections.Generic;
-using ServiceStack.Common.Extensions;
+using ServiceStack.Common;
 
 namespace Cayita.HtmlWidgets
 {
